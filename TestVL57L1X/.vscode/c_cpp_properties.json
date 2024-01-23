@@ -1,0 +1,43 @@
+{
+    "configurations": [
+        {
+            "name": "ESP-IDF",
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-clang-x64",
+            "includePath": [
+                "${config:idf.espIdfPath}/components/soc/${config:idf.adapterTargetName}/**",
+                "${config:idf.espIdfPath}/components/freertos/port/xtensa/include/**",
+                "${config:idf.espIdfPath}/components/freertos/esp-additions/include/**",
+                "${config:idf.espIdfPath}/components/freertos/FreeRTOS-Kernel/**",
+                "${config:idf.espIdfPath}/components/esp_timer/**",
+                "${config:idf.espIdfPath}/components/esp_app_format/**",
+                "${config:idf.espIdfPath}/components/spi_flash/include/**",
+                "${config:idf.espIdfPath}/components/esp_hw_support/port/${config:idf.adapterTargetName}/**",
+                "${config:idf.espIdfPath}/components/driver/${config:idf.adapterTargetName}/include/**",
+                "${config:idf.espIdfPath}/components/soc/${config:idf.adapterTargetName}/include/**",
+                "${config:idf.espIdfPath}/components/hal/${config:idf.adapterTargetName}/include/**",
+                "${config:idf.espIdfPath}/components/${config:idf.adapterTargetName}/**",
+                "${config:idf.espIdfPath}/components/esp_common/include/**",
+                "${config:idf.espIdfPath}/components/log/**",
+                "${config:idf.espIdfPath}/components/esp_event/include/**",
+                "${config:idf.espIdfPath}/components/**",
+                
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/main/vl53l1x/**"
+            ],
+            "browse": {
+                "path": [
+                    "${config:idf.espIdfPath}/components",
+                    "${config:idf.espIdfPathWin}/components",
+                    "${config:idf.espAdfPath}/components/**",
+                    "${config:idf.espAdfPathWin}/components/**",
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": false
+            }
+        }
+    ],
+    "version": 4
+}
