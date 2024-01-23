@@ -6,6 +6,7 @@
 
 
 #include "vl53l1x/vl53l1_platform.h"
+#include "vl53l1x/VL53L1X_api.h"
 
 static const char *TAG = "TestVL53L1X";
 
@@ -35,5 +36,6 @@ void app_main(void)
     printf("VL53L1X Module_Type: %02X\n\r", byteData);
     VL53L1_RdWord(Dev, 0x010F, &wordData);
     printf("VL53L1X: %02X\n\r", wordData);
-    // int status = VL53L1_WaitDeviceBooted(Dev);
+    int status = VL53L1X_SensorInit(dev);
+    printf("INIT status: %i\n\r", status);
 }
