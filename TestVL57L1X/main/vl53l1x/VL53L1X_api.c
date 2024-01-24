@@ -222,7 +222,7 @@ VL53L1X_ERROR VL53L1X_SensorInit(VL53L1_Dev_t dev)
 {
 	VL53L1X_ERROR status = 0;
 	uint8_t Addr = 0x00, tmp=0;
-
+	
 	for (Addr = 0x2D; Addr <= 0x87; Addr++){
 		status = VL53L1_WrByte(&dev, Addr, VL51L1X_DEFAULT_CONFIGURATION[Addr - 0x2D]);
 	}

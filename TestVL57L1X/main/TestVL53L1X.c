@@ -21,7 +21,7 @@ void app_main(void)
 
     VL53L1_Dev_t dev = {
         .I2cHandle = I2C_MASTER_NUM,
-        .I2cDevAddr = 0x29 // Set your default value here
+        .I2cDevAddr = 0x52 // Set your default value here
     };
 
     // Create a pointer to the VL53L1_Dev_t instance
@@ -30,12 +30,26 @@ void app_main(void)
     uint8_t byteData;
     uint16_t wordData;
 
+    int status;
+    printf("adress: %i handle: %i\n\r", Dev->I2cDevAddr, Dev->I2cHandle);
     VL53L1_RdByte(Dev, 0x010F, &byteData);
     printf("VL53L1X Model_ID: %02X\n\r", byteData);
     VL53L1_RdByte(Dev, 0x0110, &byteData);
     printf("VL53L1X Module_Type: %02X\n\r", byteData);
     VL53L1_RdWord(Dev, 0x010F, &wordData);
     printf("VL53L1X: %02X\n\r", wordData);
-    int status = VL53L1X_SensorInit(dev);
+    status = VL53L1X_SensorInit(dev);
     printf("INIT status: %i\n\r", status);
+    status = VL53L1X_CheckForDataReady(dev, &byteData);
+    printf("Data status: %i %02X\n\r", status, byteData);
+    while (1)
+    {
+        status = VL53L1X_SensorInit(dev);
+        status = VL53L1X_CheckForDataReady(dev, &byteData);
+        printf("Data status: %i %02X  ", status, byteData);
+        VL53L1X_GetDistance(dev, &wordData);
+        printf("Distance: %i\n\r", wordData);
+    }
+    
+    
 }
