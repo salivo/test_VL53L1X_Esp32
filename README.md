@@ -6,4 +6,4 @@ https://github.com/kazkojima/esp32-vl53l1x-test/
 
 https://github.com/leeebo/esp32-vl53l1x-test/tree/master
 
-if you don't understand nothning, it's normal be brave and try code this bull shit :) 
+if you don't understand nothning, it's normal, be brave and try code this bull shit :) 
